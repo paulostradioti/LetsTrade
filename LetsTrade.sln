@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LetsTrade.Console", "LetsTrade.Console\LetsTrade.Console.csproj", "{00D2D735-457D-4096-83D5-25413F24072A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00D2D735-457D-4096-83D5-25413F24072A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00D2D735-457D-4096-83D5-25413F24072A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00D2D735-457D-4096-83D5-25413F24072A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00D2D735-457D-4096-83D5-25413F24072A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3CA44108-ACC1-4AD5-A075-FA4C483937B6}
+	EndGlobalSection
+EndGlobal
