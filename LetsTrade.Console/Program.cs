@@ -1,26 +1,30 @@
 ﻿using LetsTrade.Console;
+using LetsTrade.Console.Abstractions;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace SingleResponsibilityPrinciple
 {
     class Program
     {
+
         static void Main(string[] args)
         {
-            var stream = File.OpenRead("trades.txt");
+            var serviceCollection = new ServiceCollection()
+                .AddScoped<ITradeDataReader, TextFileTradeDataReader>()
+                .AddScoped<ITradesLogger, ConsoleITradesLogger>()
+                .AddScoped<ITradeValidator, TradeValidator>()
+                .AddScoped<ITradeMapper, TradeMapper>()
+                .AddScoped<ITradeParser, TradeParser>()
+                .AddScoped<ITradeSaver, TradeSaver>()
+                .AddScoped<ITradeProcessor, TradeProcessor>();
 
-            ITradeDataReader tradeDataReader = new TextFileTradeDataReader();
-            ITradesLogger tradeLogger = new ConsoleITradesLogger();
-            ITradeValidator tradeValidator = new TradeValidator(tradeLogger);
-            ITradeMapper tradeMapper = new TradeMapper();
-            ITradeParser tradeParser = new TradeParser(tradeValidator, tradeMapper);
-            ITradeSaver tradeSaver = new TradeSaver(tradeLogger);
+            var serviceProvider = serviceCollection.BuildServiceProvider();
 
-            var tradeProcessor = new TradeProcessor(tradeDataReader, tradeParser, tradeSaver);
-            tradeProcessor.ProcessTrades(stream);
-            
-            stream.Close();
-
-            Console.ReadKey();
+            using (var stream = File.OpenRead("trades.txt"))
+            {
+                var tradesProcessor = serviceProvider.GetService<ITradeProcessor>();
+                tradesProcessor.ProcessTrades(stream);
+            }
         }
     }
 }

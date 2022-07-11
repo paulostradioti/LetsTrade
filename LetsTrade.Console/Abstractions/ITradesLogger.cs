@@ -1,4 +1,4 @@
-﻿namespace LetsTrade.Console
+﻿namespace LetsTrade.Console.Abstractions
 {
     public interface ITradesLogger
     {

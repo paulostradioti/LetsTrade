@@ -1,4 +1,4 @@
-﻿using LetsTrade.Console;
+﻿using LetsTrade.Console.Abstractions;
 using System;
 
 namespace SingleResponsibilityPrinciple

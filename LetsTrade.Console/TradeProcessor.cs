@@ -1,14 +1,16 @@
-﻿using LetsTrade.Console;
+﻿using LetsTrade.Console.Abstractions;
 
 namespace SingleResponsibilityPrinciple
 {
-    public class TradeProcessor
+    public class TradeProcessor : ITradeProcessor
     {
         private readonly ITradeDataReader _tradeDataReader;
         private readonly ITradeParser _tradeParser;
         private readonly ITradeSaver _tradeSaver;
 
-        public TradeProcessor(ITradeDataReader tradeDataReader, ITradeParser tradeParser, ITradeSaver tradeSaver)
+        public TradeProcessor(ITradeDataReader tradeDataReader,
+                              ITradeParser tradeParser,
+                              ITradeSaver tradeSaver)
         {
             _tradeDataReader = tradeDataReader;
             _tradeParser = tradeParser;

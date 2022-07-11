@@ -1,4 +1,6 @@
-﻿namespace LetsTrade.Console
+﻿using LetsTrade.Console.Abstractions;
+
+namespace LetsTrade.Console
 {
     public class TradeSaver : ITradeSaver
     {
